@@ -25,7 +25,8 @@ class Answer_5_1():
     def Step3(self):
         import csv
         with open(self.csvFileName,'r') as contents:
-            for row in contents:
+            rows = csv.reader(contents)
+            for row in rows:
                 print(row)
 
 
