@@ -54,3 +54,12 @@ class Answer_5_3():
         with open(self.inputFileName) as txt:
             lines = txt.read()
         print(re.findall(r'\bc\w*\b',lines))
+    
+    ##-------------------------Step5-----------------------------##
+    def Step5(self):
+        '''
+        peachをappleに変換する。
+        '''
+        with open(self.inputFileName) as txt:
+            lines = txt.read()
+        print(re.sub(r'peach',r'apple',lines))
