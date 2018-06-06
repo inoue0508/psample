@@ -67,6 +67,35 @@ class Answer_5_5():
         print("重さ最小：{0}：{1}kg".format(wminName,wmin))
         print("重さ平均：{0}kg".format(wave))
 
-        ##-------------------------------Step6--------------------------------##
+    ##-------------------------------Step6--------------------------------##
     def Step6(self):
-        pass
+        '''タイプ1毎に高さと重さの平均を求める。'''
+
+        data = pd.read_csv(self.inputFilePath)
+        groupData = data.groupby("タイプ1")
+        have = round(groupData["高さ"].mean(),1)
+        wave = round(groupData["重さ"].mean(),1)
+
+        resultData = pd.DataFrame(columns=["タイプ1","高さ平均","重さ平均"])
+        resultData["タイプ1"] = have.index
+        resultData["高さ平均"] = have.values
+        resultData["重さ平均"] = wave.values
+        print(resultData)
+
+
+      
+
+    ##-------------------------------Step7--------------------------------##
+    def Step7(self):
+        '''
+        BMIを計算新たな列を追加する
+        '''
+        data = pd.read_csv(self.inputFilePath)
+
+        #BMIリスト
+        bmiList = list()
+        for index,row in data.iterrows():
+            bmiList.append(round(row.values[5] / (row.values[4] ** 2),1))
+        
+        data["BMI"] = bmiList
+        print(data)

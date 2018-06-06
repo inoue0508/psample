@@ -10,5 +10,5 @@ import Algorithm_5_3 as al_53
 import Algorithm_5_5 as al_55
 
 ins = al_55.Answer_5_5()
-ins.Step5()
+ins.Step6()
 
