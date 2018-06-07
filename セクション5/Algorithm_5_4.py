@@ -29,3 +29,26 @@ class Answer_5_4():
             i -= 1
               
         print(res)
+    
+    ##-------------------------Step2-----------------------------##
+    def Step2(self):
+        '''パイソンコメントを削除する。'''
+
+        inputFileName = "/home/inoue/python/commentdelete.py"
+        outputFileName = "/home/inoue/python/output.py"
+
+        with open(inputFileName) as txt:
+            contents = txt.read()
+        
+        #[''']か["""]に囲まれたコメント削除
+        regex = re.compile(r'("|\'){3}([^\'"]|\n)*(\1){3}')
+        result = regex.sub('',contents)
+
+        # #のコメント削除
+        result = re.sub(r'( |\t)*#.*\n','',result)
+
+        #ファイルに結果を出力
+        with open(outputFileName,'wt') as txt:
+            txt.write(result)
+        print(result)
+
