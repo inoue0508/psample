@@ -16,7 +16,7 @@ class ConnectPostgresql():
         port = "5432"
         dbName = "sample"
         userName = "inoue"
-        password = "910715_YK"
+        password = "****"
 
         self.connection = psycopg2.connect("host={0} port={1} dbname={2} user={3} password={4}"
                                         .format(ipAddress,port,dbName,userName,password))
